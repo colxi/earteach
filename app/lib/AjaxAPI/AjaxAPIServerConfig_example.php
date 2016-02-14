@@ -1,4 +1,9 @@
 <?php
+	//
+	// config crosssite rules, and  DB acces parameters and 
+	// rename this file to AjacAPIServerConfig.php
+	//
+	 
 	/* Allow crossdomain AJAX calls (CORS) */
 	header("Access-Control-Allow-Origin: http://localhost");	// only for LOCALHOST origin calls! (debug, desktop app...)
 	header("Access-Control-Allow-Credentials: true");			// allow cookies be send in CORS ajax calls
