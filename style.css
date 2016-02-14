@@ -1,0 +1,190 @@
+@font-face{
+	font-family: 'PT Sans';
+	src: url('fonts/PT Sans regular.ttf');
+}
+
+body{
+	background-color:black;
+	margin:0px;
+	padding:0px;
+	background-image:url('imgs/back.jpg');
+	background-repeat:repeat;
+	background-position:left top;
+	font-family: 'PT Sans', sans-serif;
+}
+
+a{
+	text-decoration:none;
+	color: #ffb600;
+	transition:color 0.5s;
+}
+a:hover{color:white;}	
+
+
+[hidden] { 
+	/* IE hack for HIDDEN attribute support */
+	display: none; 
+}
+
+/*  GENERIC STYLES */
+#generalcontainer{
+	position:relative;
+	width:945px;
+	height:655px;
+	margin:auto;
+}
+
+.vector1{
+	background-image:url('imgs/index.png');
+}
+
+.vector2{
+	background-image:url('imgs/vector2.png?');
+}
+
+
+.butBig{
+	display:block;
+	font-size: 20px;
+	cursor:pointer;
+	color: #ffb600;
+}
+
+.verticalMiddle{
+	vertical-align: middle;
+}
+/* ------------------------ */
+
+#logo{
+	position:absolute;
+	background-image:url('imgs/logo.png');
+	background-repeat:no-repeat;
+	width:157px;
+	height:146px;
+	left: 500px;
+	top: 120px;
+}
+
+.onlineBut{
+	position:absolute;
+	top: 465px;
+	left: 455px;
+	color: #ffb600;
+}
+
+.desktopBut{
+	position:absolute;
+	top: 465px;
+	left: 285px;
+	color: #c4790f;
+}
+
+#homeSubtitle{
+	position: absolute;
+	top: 260px;
+	color: white;
+	left: 500px;
+	font-size: 35px;
+}
+
+#homeSecondarySubtitle{
+	position: absolute;
+	top: 305px;
+	color: black;
+	left: 500px;
+	font-size: 25px;
+	font-weight: bold;
+	line-height: 25px;
+}
+
+#homeSecondarySubtitleSmall{
+	position: absolute;
+	top: 220px;
+	left: 150px;
+	font-size: 20px;
+	color: #ffb600;
+	width: 310px;
+	font-family: verdana;
+	text-align: right;
+}
+
+#homeSecondarySubtitleSmall a{
+	color:#c4790f;
+}
+#homeSecondarySubtitleSmall a:hover{
+	color:white;
+}
+
+#footer{
+	position: absolute;
+	bottom: 0px;
+	left: 340px;
+	color: white;
+	font-size: 12px;
+}
+
+
+
+#slideshowViewPort{
+	position: absolute;
+	width:430px;
+	height:230px;
+	top: 122px;
+	left: 40px;
+	box-shadow: 0 0 10px black;
+}
+
+
+.downloadbutton{
+	width:62px;
+	height:57px;
+	position: absolute;
+	cursor:pointer;
+	transition:all .5s;
+}
+.downloadbutton:hover{
+-webkit-transform: scale(1.1,1.1);
+}
+
+#apple{
+	background-image:url('imgs/apple.png');
+	top: 465px;
+	left: 490px;
+	opacity:0.2;
+	cursor:default;
+}
+
+#linux{
+	background-image:url('imgs/linux.png');
+	top: 465px;
+	left: 660px;
+	opacity:0.2;
+	cursor:default;
+}
+
+#windows{
+	background-image:url('imgs/windows.png');
+	top: 465px;
+	left: 570px;
+}
+
+#downloadTitle{
+	color:white;
+	position: absolute;
+	top: 420px;
+	left: 500px;
+	font-size: 13px;
+}
+
+#downloadTitle span{
+	color:#ffb600;
+}
+
+#goback{
+	position: absolute;
+	top: 300px;
+	left: 500px;
+	font-size: 13px;
+}
+
+a{color: orangered;}

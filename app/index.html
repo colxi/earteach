@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" CONTENT="text/html; charset=UTF-8">
+		<meta name="author" content="colxi.info">
+		<meta name="description" content="Ear Teach Ear trainer, online free application for musical ear training.">
+		
+		<title>EarTeach: Free Online Ear Training Application</title>
+		<link rel="stylesheet" type="text/css" href="style.css" /> 
+
+		<!-- includes -->
+		<script src="lib/JSPiano.js"></script>
+		
+		<script src="lib/AjaxAPI/AjaxAPIClient.js"></script>
+		<script src="lib/JSHarmony.js"></script>
+		<script src="lib/multilanguaje.js"></script>
+		<script src="lib/testEngine.js"></script>
+		<script src="earTeach.js"></script>
+		<!-- remote (desktop app)-->
+		<script src="http://www.colxi.info/projects/earteach/app/lib/_DesktopClientGateway.js"></script>
+	</head>
+	<body>
+		<!-- GUI skeleton -->
+		<div id="container">
+			<div id="appCont">
+				<div id="error" hidden onclick="this.setAttribute('hidden','true')">
+					<div id="errorBox"><div id="errorBoxMsg"></div></div>
+				</div>
+				<div id="pianorollCont"></div>
+				<div id="appBody">
+					<div hidden>Your Free Online Ear Training Application. Improve your musical auditive skills now!.</div>
+				</div>
+			</div>
+			<div id="footerpage">
+				EarTeach (beta): open ear trainer by <a href="http://www.colxi.info">Colxi.info</a> 
+				<span style="cursor:pointer" onclick = "GUI.render.aboutScreen()"><a>| About |</a></span>
+				<span style="cursor:pointer"><a href="changelog.txt" target="_blank"> Changelog |</a></span>
+				<span style="cursor:pointer"><a href="http://www.colxi.info/bug-report/"  target="_blank" > Bug Report |</a></span>
+				<span style="cursor:pointer;"><a style="color:white !important" href="http://www.colxi.info/projects/earteach/download.html"> Download Desktop Edition</a></span>
+			</div>
+		</div>
+		<span id="invisible" hidden><!-- used for invisible DRAG & DROP image --></span>  
+	</body>
+	<script>		
+		window.onload = function(){
+			_RemoteInit();
+			GUI.init();
+		}
+	</script>
+</html>

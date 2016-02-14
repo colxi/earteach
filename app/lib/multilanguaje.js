@@ -1,0 +1,218 @@
+
+// Multilanguage function
+
+// '_it' is  interactiveTranslation abbreviation
+var _it = false;
+var _warningUntranslated = false;
+
+function __(string){
+	// if language is english, return original string
+	if(SESSION.LANG == "EN" || SESSION.LANG == '') return string;
+	// if language not ENGLISH, and translation is defined, return translation
+	else if(dictio[string] != undefined) return dictio[string];
+	// if translation is not defined
+	else{
+		// if interactive trasnlation enabled, ask user for trasnlation
+		if(_it == true){
+			var retVal = prompt("English-Spanish:" + string,string);
+			dictio[string] = retVal;
+			return  string;
+		}
+		// if interactive Translation disabled and _warningUntranslated enabled, return with warning
+		else if(_warningUntranslated) return  string + '<exclamation> (!) </exclamation>';
+		// else, return ENGLISH string without warning
+		else return  string;
+	}
+}
+
+function echoDictio(){ 
+	var text = "";
+	for(var index in dictio) text += '"' + index + '" : "' + dictio[index] + '",\n';
+	log(text);
+}
+
+
+// Dictionary
+dictio ={
+"7" : "7",
+"Lost your password?" : "¿Has perdido la contraseña?",
+"Create an Account" : "Crea tu cuenta",
+"View DEMO" : "Ver DEMO",
+"Invalid username/password." : "Usuario/contraseña inválidos",
+"Chords" : "Acordes",
+"Intervals" : "Intervalos",
+"Scales" : "Escalas",
+"Options" : "Opciones",
+"Logout" : "Cerrar Sesión",
+"Manage Account" : "Administrar Cuenta",
+"Preferences" : "Preferencias",
+"Reset Stats" : "Resetear estadísticas",
+"About EarTeach" : "Sobre EarTeach",
+"New Account" : "Nueva Cuenta",
+"*Allowed characters: Aa-Zz 0-9" : "*Carácteres permitidos: Aa-Zz 0-9",
+"Username field required!" : "Campo de usuario requerido!",
+"Password field required!" : "Campo de contraseña requerido!",
+"Email field required!" : "Campo de email requerido!",
+"Passwords must match!" : "Las contraseñas deben coincidir!",
+"Incorrect email!" : "Email incorrecto!",
+"Congratulations! Your account has been created." : "Felicidades! Tu cuenta ha sido creada!",
+"Wich chord has just been played?" : "¿Que tipo de acorde acaba de sonar?",
+"Wich scale has just been played?" : "¿Que escala acaba de sonar?",
+"Wich interval has just been played?" : "¿Que intervalo acaba de sonar?",
+"Majors and Minors (Triads, Arpeggiated)" : "Mayores y menores (Tríadas, Arpegiados)",
+"Aug and Dims (Triads, Arpeggiated)" : "Augs y Dims (Tríadas, Arpegiados)",
+"Majors, Minors, Aug and Dims (Triads, Arpeggiated)" : "Mayores, menores, Augs y Dims (Tríadas, Arpegiados)",
+"Majors and Minors (Triads)" : "Mayores y menores (Tríadas)",
+"Aug and Dims (Triads)" : "Augs y Dims (Tríadas)",
+"Majors, Minors, Aug and Dims (Triads)" : "Mayores, menores, Augs y Dims (Tríadas)",
+"major" : "mayor",
+"minor" : "menor",
+"aug" : "aug",
+"dim" : "dim",
+"Go back" : "Volver atrás",
+"Round " : "Ronda ",
+"of" : "de",
+"Initiating Test..." : "Iniciando el test...",
+"Test completed. Hit Rate: " : "Test completado. Tasa de aciertos: ",
+"Return" : "Volver",
+"IIIM - VP - VIII (Melodic, Ascending)" : "IIIM - VJ - VIII (Melódicos, Ascendentes)",
+"IVP - VIM (Melodic, Ascending)" : "IVJ - VIM (Melódicos, Ascendentes)",
+"You must first give a NAME to your preset!": "Debes darle un nombre al Preset!",
+"You must select at least 1 item!": "Debes seleccionar por lo menos 1 elemento!",
+// <-- intervals definitions
+"2dim" 	: "2dim",
+"2m" 	: "2m",
+"2M" 	: "2M",
+"2aug" 	: "2aug",
+"3dim" 	: "3dim",
+"3m" 	: "3m",
+"3M" 	: "3M",
+"3aug" 	: "3aug",
+"4dim" 	: "4dim",
+"4P" 	: "4J",
+"4aug" 	: "4aug",
+"5dim" 	: "5dim",
+"5P" 	: "5J",
+"5aug" 	: "5aug",
+"6dim" 	: "6dim",
+"6m" 	: "6m",
+"6M" 	: "6M",
+"6aug" 	: "6aug",
+"7dim" 	: "7dim",
+"7m" 	: "7m",
+"7M" 	: "7M",
+"7aug" 	: "7aug",
+"8dim" 	: "8dim",
+"8P" 	: "8J",
+"8aug" 	: "8aug",
+// intervals ascending
+"2dim asc" 	: "2dim asc",
+"2m asc" 	: "2m asc",
+"2M asc" 	: "2M asc",
+"2aug asc" 	: "2aug asc",
+"3dim asc" 	: "3dim asc",
+"3m asc" 	: "3m asc",
+"3M asc" 	: "3M asc",
+"3aug asc" 	: "3aug asc",
+"4dim asc" 	: "4dim asc",
+"4P asc" 	: "4J asc",
+"4aug asc" 	: "4aug asc",
+"5dim asc" 	: "5dim asc",
+"5P asc" 	: "5J asc",
+"5aug asc" 	: "5aug asc",
+"6dim asc" 	: "6dim asc",
+"6m asc" 	: "6m asc",
+"6M asc" 	: "6M asc",
+"6aug asc" 	: "6aug asc",
+"7dim asc" 	: "7dim asc",
+"7m asc" 	: "7m asc",
+"7M asc" 	: "7M asc",
+"7aug asc" 	: "7aug asc",
+"8dim asc" 	: "8dim asc",
+"8P asc" 	: "8J asc",
+"8aug asc" 	: "8aug asc",
+// intervals descending
+"2dim desc" : "2dim desc",
+"2m desc" 	: "2m desc",
+"2M desc" 	: "2M desc",
+"2aug desc" : "2aug desc",
+"3dim desc" : "3dim desc",
+"3m desc" 	: "3m desc",
+"3M desc" 	: "3M desc",
+"3aug desc" : "3aug desc",
+"4dim desc" : "4dim desc",
+"4P desc" 	: "4J desc",
+"4aug desc" : "4aug desc",
+"5dim desc" : "5dim desc",
+"5P desc" 	: "5J desc",
+"5aug desc" : "5aug desc",
+"6dim desc" : "6dim desc",
+"6m desc" 	: "6m desc",
+"6M desc" 	: "6M desc",
+"6aug desc" : "6aug desc",
+"7dim desc" : "7dim desc",
+"7m desc" 	: "7m desc",
+"7M desc" 	: "7M desc",
+"7aug desc" : "7aug desc",
+"8dim desc" : "8dim desc",
+"8P desc" 	: "8J desc",
+"8aug desc" : "8aug desc",
+// end intervals definitions --->
+"Not implemented yet." : "Funcionalidad no implementada.",
+"Demo Mode" : "Modo Demo",
+"*Click here and create your own account!" : "*¡Clica aquí para crear tu propia cuenta de usuario!",
+"You are going to remove ALL your stats. ¿Are you really shure?" : "Se van a eliminar todas tus ESTADÍSTICAS. ¿Deseas continuar?",
+"Change Password, update email..." : "Modificar contraseña, cambiar email...",
+"EarTeach configuration" : "Configuración de EarTeach",
+"Version: " : "Versión: ",
+"Major (ionian) and Minor (aeolian)" : "Mayor (iónica) y Menor (eólica)",
+"Minor Natural (aeolian) and Minor Harmonic" : "Menor Natural (eólica) y Menor Armónica",
+"Minor Natural (aeolian) and Minor Bachian" : "Menor Natural (eólica) y Menor Bachiana",
+"Minor Natural (aeolian) and Minor Melodic" : "Menor Natural (eólica) y Menor Melódica",
+"Minor Natural (aeolian), Minor Harmonic, Minor Melodic" : "Menor Natural (eólica), Menor Armónica, Menor Melódica",
+"Major (ionian), Minor Natural (aeolian), Minor Harmonic, Minor Melodic" : "Mayor (iónica), Menor Natural (eólica), Menor Armónica, Menor Melódica",
+"Max7 and minor7 (Arpeggiated)" : "Max7 y menor7 (Arpegiados)",
+"7 and semidim (Arpeggiated)" : "7 y semidim (Arpegiados)",
+"Max7, minor7, 7 and semidim (Arpeggiated)" : "Max7, menor7, 7 y semidim (Arpegiados)",
+"Max7 and minor7" : "Max7 y menor7",
+"7 and semidim" : "7 y semidim",
+"Max7, minor7, 7 and semidim" : "Max7, menor7, 7 y semidim",
+"semidim" : "semidim",
+"max7" : "max7",
+"m7" : "m7",
+"Major" : "Mayor",
+"Minor" : "Menor",
+"Minor Natural" : "Menor Natural",
+"Minor Harmonic" : "Menor Armónica",
+"Minor Bachian" : "Menor Bachiana",
+"Minor Melodic" : "Menor Melódica",
+"IIM - VIIM (Melodic, Ascending)" : "IIM - VIIM (Melódicos, Ascendentes)",
+"IIM - IIIM - IVP - VP - VIM - VIIM - VIIIP (Melodic, Ascending)" : "IIM - IIIM - IVJ - VJ - VIM - VIIM - VIIIJ (Melódicos, Ascendentes)",
+"IIIM - VP - VIII (Melodic, Descending)" : "IIIM - VJ - VIII (Melódicos, Descendentess)",
+"IVP - VIM (Melodic, Descending)" : "IVJ - VIM (Melódicos, Descendentess)",
+"IIM - VIIM (Melodic, Descending)" : "IIM - VIIM (Melódicos, Descendentess)",
+"IIM - IIIM - IVP - VP - VIM - VIIM - VIIIP (Melodic, Descending)" : "IIM - IIIM - IVJ - VJ - VIM - VIIM - VIIIJ (Melódicos, Descendentess)",
+"Incorrect" : "Incorrecto",
+"not" : "no",
+"It's" : "Es",
+"Harmonic" : "Armónico",
+"Melodic" : "Melódico",
+"Ascending" : "Ascendente",
+"Descending" : "Descendente",
+"Your presets" : "Tus presets",
+"Create a new custom preset" : "Crea un nuevo preset personalizado",
+"Manage your own presets list" : "Administra tu lista de presets",
+"Loading..." : "Cargando...",
+"No Data": "Sin Datos",
+"Selected items": "Elementos seleccionados",
+"Play Mode": "Modo de reproducción",
+"none": "ninguno",
+"Preset Editor": "Editor de Preset",
+"Preset name": "Nombre del preset",
+"Direction": "Dirección",
+"Preset family": "Familia del preset",
+"Statistics are only available with your personal account.": "Create una cuenta para disfrutar de las estadísticas",
+"Custom Presets are only available with your personal account.": "Create una cuenta para disfrutar de los Presets Personales",
+"Feel the difference" : "Aprecia las diferencias",
+"Progressions": "Progresiones"
+}
