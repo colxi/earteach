@@ -86,8 +86,16 @@ var GUI = {
 
 		var SoundBank 		 = null;
 		var SamplesSoundBank = null;
-
 		switch(_browser){
+			case "Firefox":
+				if(_version < 45){
+					GUI.render.messageScreen(__("Your Browser is not updated.<br/><br/>Please update in order to use EarTeach."),null);
+					throw new Error("Unsupported Browser Version");
+				}else{
+					SoundBank 		 = piano.defaultSoundBank;
+					SamplesSoundBank = piano.samplesSoundBank;
+				}
+				break;
 			case "Chrome":
 				// validate version.
 				if(_version < 25){
@@ -95,7 +103,7 @@ var GUI = {
 					throw new Error("Unsupported Browser Version");
 				}else{
 					SoundBank 		 = piano.defaultSoundBank;
-					SamplesSoundBank = piano.samplesSoundBank
+					SamplesSoundBank = piano.samplesSoundBank;
 				}
 				break;
 			/*
@@ -105,10 +113,11 @@ var GUI = {
 				break;
 			*/
 			default:
-
-				//GUI.render.messageScreen(__("Currently EarTeach just runs stable in Chrome browser.<br/><br/><a href='http://www.google.com/chrome'>You can download it here.</a>"),null);
-				//throw new Error("Unsupported Browser");
+				GUI.render.messageScreen(__("Currently EarTeach just runs stable in Chrome and Firefox browsers.<br/><br/><a href='http://www.google.com/chrome'>You can download Chrome here.</a>"),null);
+				throw new Error("Unsupported Browser");
 		}
+
+
 
 		GUI.render.loader();
 
@@ -156,9 +165,10 @@ var GUI = {
 			document.getElementById('appBody').innerHTML = _htmlCode;
 			return true;
 		},
-		statsScreen: function(presetId){
+		statsScreen: function(event, presetId){
 			// prevent box capture click event
-			if(window.event) event.stopPropagation();
+			event = event || window.event;
+			if(event) event.stopPropagation();
 
 			if(SESSION.onlineMode == false){
 				GUI.render.messageScreen(__("Statistics are only available with your personal account."));
@@ -660,7 +670,7 @@ var GUI = {
 			// Box html code
 			var _htmlCode= "";
 			_htmlCode 	+= "<div class='box greyBoxBackground' onclick='GUI.render.trainer(" + trainerIndex + "," + presetIndex  + ","+ presetCustomFLAG +")' id='trainer" + preset.id + "'>";
-			_htmlCode 	+= 		"<canvas class='canvasStats' hidden onclick='GUI.behavior.hideStats(\"" + preset.id + "\")'></canvas>";
+			_htmlCode 	+= 		"<canvas class='canvasStats' hidden onclick='GUI.behavior.hideStats(event,\"" + preset.id + "\")'></canvas>";
 			_htmlCode 	+= 		"<div class='boxTitleCont'>";
 			_htmlCode 	+= 			"<div class='boxTitle titleSmallGrey'>" + __(preset.name) + "</div>";
 			_htmlCode 	+= 		"</div>";
@@ -678,7 +688,7 @@ var GUI = {
 			_htmlCode	+= 			"<div class='boxStatsCompleted'> " + preset.completed + "</div>";
 			if(presetCustomFLAG)
 				_htmlCode	+= 		"<div class='boxDeletePreset' onclick='GUI.behavior.deletePreset("+ preset.id +")'></div>";
-			_htmlCode	+= 			"<div class='boxStatsViewDetails' onclick='GUI.render.statsScreen(" + preset.id + ")'></div>";
+			_htmlCode	+= 			"<div class='boxStatsViewDetails' onclick='GUI.render.statsScreen(event," + preset.id + ")'></div>";
 			_htmlCode	+= 			"<div class='clear'></div>";
 			_htmlCode	+=		"</div>";
 			_htmlCode	+=	"</div>";
@@ -849,11 +859,13 @@ var GUI = {
 
 			trainerMakerItemsContainer.innerHTML = (SelectedValues.length == 0) ? '(' + __('none') + ')' :_html;
 		},
-		hideStats: function(presetId){
+		hideStats: function(event, presetId){
 			// prevent box capture click event
-			if(window.event) event.stopPropagation();
+			event = event || window.event;
+			if(event) event.stopPropagation();
 
-			document.getElementById('trainer' + presetId).getElementsByTagName('canvas')[0].setAttribute("hidden",'true')
+			document.getElementById('trainer' + presetId).getElementsByTagName('canvas')[0].setAttribute("hidden",'true');
+			return true;
 		},
 		playClickSound: function(){
 			// play sound

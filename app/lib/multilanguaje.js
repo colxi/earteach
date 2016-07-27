@@ -19,7 +19,7 @@ function __(string){
 			return  string;
 		}
 		// if interactive Translation disabled and _warningUntranslated enabled, return with warning
-		else if(_warningUntranslated) return  string + '<exclamation> (!) </exclamation>';
+		else if(_warningUntranslated) return  string + '<untranslated>&#9872;</untranslated>';
 		// else, return ENGLISH string without warning
 		else return  string;
 	}
