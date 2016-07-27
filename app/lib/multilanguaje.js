@@ -25,7 +25,7 @@ function __(string){
 	}
 }
 
-function echoDictio(){ 
+function echoDictio(){
 	var text = "";
 	for(var index in dictio) text += '"' + index + '" : "' + dictio[index] + '",\n';
 	log(text);
@@ -56,9 +56,9 @@ dictio ={
 "Passwords must match!" : "Las contraseñas deben coincidir!",
 "Incorrect email!" : "Email incorrecto!",
 "Congratulations! Your account has been created." : "Felicidades! Tu cuenta ha sido creada!",
-"Wich chord has just been played?" : "¿Que tipo de acorde acaba de sonar?",
-"Wich scale has just been played?" : "¿Que escala acaba de sonar?",
-"Wich interval has just been played?" : "¿Que intervalo acaba de sonar?",
+"Which chord has just been played?" : "¿Que tipo de acorde acaba de sonar?",
+"Which scale has just been played?" : "¿Que escala acaba de sonar?",
+"Which interval has just been played?" : "¿Que intervalo acaba de sonar?",
 "Majors and Minors (Triads, Arpeggiated)" : "Mayores y menores (Tríadas, Arpegiados)",
 "Aug and Dims (Triads, Arpeggiated)" : "Augs y Dims (Tríadas, Arpegiados)",
 "Majors, Minors, Aug and Dims (Triads, Arpeggiated)" : "Mayores, menores, Augs y Dims (Tríadas, Arpegiados)",

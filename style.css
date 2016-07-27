@@ -18,12 +18,12 @@ a{
 	color: #ffb600;
 	transition:color 0.5s;
 }
-a:hover{color:white;}	
+a:hover{color:white;}
 
 
-[hidden] { 
+[hidden] {
 	/* IE hack for HIDDEN attribute support */
-	display: none; 
+	display: none;
 }
 
 /*  GENERIC STYLES */
