@@ -11,12 +11,12 @@ body{
     -webkit-user-select: none;
     -o-user-select: none;
     user-select: none;
-	
+
 }
 
-[hidden] { 
+[hidden] {
 	/* IE hack for HIDDEN attribute support */
-	display: none; 
+	display: none;
 }
 
 white{
@@ -58,6 +58,7 @@ a:hover{color:orange;}
    margin-top: -275px;/* half of #content height*/
    left: 0;
    width: 100%;
+   height: 590px;
 }
 
 #appCont{
@@ -73,7 +74,7 @@ a:hover{color:orange;}
 	background-image:url('imgs/background.jpg');
 	background-repeat:no-repeat;
 	background-position:right top;
-	
+
 	box-shadow: 0px 0px 10px rgb(00,00,00);
 
 }
@@ -129,9 +130,9 @@ a:hover{color:orange;}
 #appBody{
 	position:absolute;
 	top:75px;
+	bottom:0px;
 	left:0px;
 	width:100%;
-	height:500px;
 }
 
 #NavigatorContainer{
@@ -152,9 +153,9 @@ a:hover{color:orange;}
 	position: relative;
 	padding-top: 40px;
 	padding-left: 40px;
-	transition: top 1s cubic-bezier(.10, .10, .25, .90);
+	padding-bottom: 20px;
 	}
-	
+
 #NavigatorContainerLeftCol{
 	margin-top: 40px;
 	float: left;
@@ -212,7 +213,7 @@ a:hover{color:orange;}
 	width: 300px;
 	height: 50px;
 }
-	
+
 #message{
 	text-align:center;
 	width:100%;
@@ -336,23 +337,12 @@ a:hover{color:orange;}
 
 
 #sidebar{
-float: right;
-display: inline-block;
-width: 55px;
-height: 390px;
-margin-right: 40px;
-position: relative;
-margin-top: 70px;
-/*
-
-	position:relative;
-	width:60px;
-	height:390px;
-	margin-top:70px;
-	float:left;
-	text-align:center;
-*/
-	}
+    width: 55px;
+    position: absolute;
+    right: 43px;
+    text-align: center;
+    bottom: 50px;
+}
 
 #scrollGuide{
 	position:absolute;
@@ -377,13 +367,11 @@ margin-top: 70px;
 }
 
 #preferencesIcon{
-	position:absolute;
-	top:340px;
-	left: 21px;
 	width:22px;
 	height:22px;
 	background-image:url('imgs/prefs.png');
 	cursor:pointer;
+	display: inline-block;
 }
 
 #preferencesIcon:hover{
@@ -401,7 +389,7 @@ margin-top: 70px;
 	box-shadow: 1px 0px 10px rgb(30,30,30);
 	float: left;
 	cursor:pointer;
-	-webkit-transition: -webkit-transform .5s ease-out; 
+	-webkit-transition: -webkit-transform .5s ease-out;
 }
 
 .box:hover{
@@ -755,7 +743,7 @@ margin-top: 70px;
 
 /*******************************************
 /*                   Trainer
-/*******************************************/		
+/*******************************************/
 
 /* TRAINER LEFT: SIDEBAR */
 
@@ -920,4 +908,58 @@ margin-top: 70px;
 	margin: 3px;
 	color: #333333;
 	padding: 5px;
+}
+
+#viewPortScrollable {
+   position: absolute;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
+    padding-right: 95px;
+    box-sizing: border-box;
+}
+
+
+#container  .ps-scrollbar-y-rail {
+
+    right: 70px  !important;;
+    margin-top: 90px !important;
+    margin-bottom: 90px !important;
+   /* height: 215px !important;*/
+    width: 3px;
+
+    background-color: #1a1a1a;
+    border: 1px solid #000;
+    border-bottom-color: #333;
+    border-radius: 3px;
+    opacity:1 !important;
+    cursor:pointer;
+    box-sizing: border-box;
+
+    top: 0px;
+    height: 295px;
+    display: block;
+
+}
+
+#container  .ps-scrollbar-y-rail:hover{
+	background-color: #1a1a1a;
+    border: 1px solid #000;
+    border-bottom-color: #333;
+}
+
+/*
+
+top 1s cubic-bezier(.10, .10, .25, .90)
+ */
+#container .ps-scrollbar-y{
+	cursor: pointer;
+	right: -7px;
+    width: 16px;
+    height: 65px;
+
+    background-image: url('imgs/v_scroller.png');
+    background-color: rgba(0, 0, 0, 0);
+	transition: top .2s cubic-bezier(.10, .10, .25, .90);
+
 }
