@@ -5,10 +5,13 @@
 	//
 	 
 	/* Allow crossdomain AJAX calls (CORS) */
-	header("Access-Control-Allow-Origin: http://localhost");	// only for LOCALHOST origin calls! (debug, desktop app...)
 	header("Access-Control-Allow-Credentials: true");			// allow cookies be send in CORS ajax calls
-	header("Access-Control-Allow-Methods: POST");
-	header("Access-Control-Allow-Headers: Content-Type, *");
+	$http_origin = $_SERVER['HTTP_ORIGIN'];
+    header("Access-Control-Allow-Origin: " . $http_origin);
+	//header('Access-Control-Allow-Origin: http://www.earteach.com');
+
+	header('Access-Control-Allow-Methods: GET, POST, OPTION'); 
+	header("Access-Control-Allow-Headers: X-Requested-With");
 
 	// DATABASE credentials
 	define("_DB", "YourDatabaseNAme");

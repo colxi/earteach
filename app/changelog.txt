@@ -1,4 +1,8 @@
-0.1.9 beta (15 nov 2013)
+0.1.10 beta (04 nov 2017)
+--------------------------
+AjaxAPIServerConfig.php > Failere detected caused by incorrect CORS headers. Fix applied to allow CORS dinamically, from any origin 
+
+ 0.1.9 beta (15 nov 2013)
 --------------------------
 earteach.js > makeScroller() bugfix. (After Chrome update stopped working.)
 earteach.js > (chord trainer constructor) now root note is transposed 1 octave down for easier recognition (unreleased)
