@@ -116,7 +116,7 @@ var GUI = {
       //   default:
       // GUI.render.messageScreen(
       //   __(
-      //     "Currently EarTeach just runs stable in Chrome and Firefox browsers.<br/><br/><a href='http://www.google.com/chrome'>You can download Chrome here.</a>"
+      //     "Currently EarTeach just runs stable in Chrome and Firefox browsers.<br/><br/><a href='https://www.google.com/chrome'>You can download Chrome here.</a>"
       //   ),
       //   null
       // )
