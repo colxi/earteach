@@ -1,6 +1,11 @@
+0.1.20 (20 march 2024)
+--------------------------
+Remove server logic and convert it into a client only application (localstorage based persistency)
+
+
 0.1.10 beta (04 nov 2017)
 --------------------------
-AjaxAPIServerConfig.php > Failere detected caused by incorrect CORS headers. Fix applied to allow CORS dinamically, from any origin 
+AjaxAPIServerConfig.php > Failure detected caused by incorrect CORS headers. Fix applied to allow CORS dinamically, from any origin 
 
  0.1.9 beta (15 nov 2013)
 --------------------------
